@@ -81,7 +81,8 @@ lang-mode-hook: the hook of the mode which should start this flymaker
 			      for (beg . end) = (flymake-diag-region
 						 source
 						 (string-to-number (match-string 1))
-						 (string-to-number (match-string 2)))
+						 (when (match-string 2)
+						   (string-to-number (match-string 2))))
 			      ,@(if typeform
 				    `(for type = ,typeform)
 				  :error)
